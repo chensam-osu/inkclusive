@@ -1,0 +1,22 @@
+{
+  "name": "inklusive",
+  "version": "1.0.0",
+  "description": "test",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chensam93/inklusive.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chensam93/inklusive/issues"
+  },
+  "homepage": "https://github.com/chensam93/inklusive#readme",
+  "dependencies": {
+    "highlight-within-textarea": "^2.0.5"
+  }
+}
