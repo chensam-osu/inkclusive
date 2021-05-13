@@ -1,1 +1,52 @@
-{% extends "base.html" %} {% block title %}Home{% endblock %}
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
+    %}
+
+    <h1>AntiRacist Text Screener</h1>
+    
+    <div class="container">
+      <div class="backdrop">
+        <div class="highlights"></div>
+      </div>
+
+      <p>Highlight <input type="text" id="blue-word" value="possible"> in blue and <input type="text" id="pink-word" value="magic"> in pink.</p>
+
+      <form method="POST">
+        <textarea placeholder="Input the text that you would like to be filtered." name="note" id="note" class="form-control" rows=15></textarea>
+        <br />
+      </form>
+    </div>
+
+    <section>
+			<h2>String</h2>
+			<p>Note that this is case-insensitive.</p>
+		<div class="hwt-container">
+      <div class="hwt-backdrop">
+        <div class="hwt-highlights hwt-content">
+          <mark>Potato</mark>
+          <mark>potato</mark>
+           tomato 
+           <mark>potato</mark>
+           .
+        </div>
+      </div>
+      <textarea class="string-example hwt-input hwt-content">Potato potato tomato potato.</textarea>
+    </div>
+			<script>
+$('.string-example').highlightWithinTextarea({
+    highlight: 'potato'
+});
+			</script>
+		</section>
+
+    <!-- <ul class="list-group list-group-flush" id="notes">
+      {% for note in user.notes %}
+      <li>
+        <h3>{{ note.data }}</h3>
+        <button type="button" class="close" onClick="deleteNote({{ note.id }})">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </li>
+      {% endfor %}
+    </ul> -->
+
+    {% endblock %}
