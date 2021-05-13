@@ -1,0 +1,23 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
+    %}
+    <h1 align="left">AntiRacist Screener</h1>
+    <form method="POST">
+      <textarea placeholder="Input the text that you would like to be filtered." name="note" id="note" class="form-control" rows=15></textarea>
+      <br />
+      <div align="center">
+        <button type="submit" class="btn btn-primary">Filter It</button>
+      </div>
+    </form>
+
+    <ul class="list-group list-group-flush" id="notes">
+      {% for note in user.notes %}
+      <li {% if note.text == 'test' %} class="test" {% else %} class="test2" {% endif %}>
+        <h3>{{ note.data }}</h3>
+        <button type="button" class="close" onClick="deleteNote({{ note.id }})">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </li>
+      {% endfor %}
+    </ul>
+
+    {% endblock %}

@@ -1,3 +1,4 @@
+
 def profanity_checker(input):
     file = open(input, "r")
     checker = open ('checker.txt', "r")
@@ -12,5 +13,3 @@ def profanity_checker(input):
     
     file.close()
     checker.close()
-
-profanity_checker('input.txt')
