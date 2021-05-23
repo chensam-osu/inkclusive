@@ -1,0 +1,61 @@
+*{
+  box-sizing: border-box;
+}
+
+body{
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+
+#doc{
+    display: none;
+  }
+
+/* --------------------------- */
+/* HEADER                      */
+/* --------------------------- */
+.header--description, .header--company{
+  display: inline-block;
+}
+
+.header--company{
+  margin-left: 5%;
+}
+
+.header--overview{
+  width: 50%;
+  margin: 0 auto;
+}
+
+/* --------------------------- */
+/* CONTENT                     */
+/* --------------------------- */
+.content--container{
+  display: flex;
+  height: 100%;
+}
+
+.original--container, .results--container{
+  flex-basis: 50%;
+  text-align: center;
+}
+
+.results--body, .original--textarea{
+  width: 100%;
+  height: 50vh;
+}
+
+.original--textarea{
+  resize: none;
+}
+
+.results--body{
+  text-align: left;
+  overflow-y: scroll;
+}
+
+.content--icon{
+  align-self: center;
+}

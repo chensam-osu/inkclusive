@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>NKclusive</title>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/layout.css' %}">
+</head>
+<body>
+
+    <div class="header--container">
+        
+        <h1 class="header--company">INKclusive</h1>
+
+        <h2 class="header--description">Discriminatory Language Scanner</h2>
+
+        <p class="header--overview">As we progress as a society and learn more about what is and is not acceptable, it is imperative that our language be able to adapt to certain expectations set by communities that are traditionally underrepresented or oppressed.</p>
+
+    </div>
+
+    <div class="content--container">
+
+        <div class="original--container">
+
+            <h1 class="original--title">Original</h1>
+            
+            {% if doc %}
+                <form action="" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    
+                    <textarea name="document" class="original--textarea">{{ doc }}</textarea>
+                    
+                    <div class="original--btns">
+
+                        <label for="doc" id="doc--label" class="original--label-uploaded">   
+                            Uploaded!
+                            <input type="file" name="doc" id="doc" onchange="submit()"/>
+                        </label>
+
+                        <input type="submit" value="Scan" class="original--submit">
+                        
+                    </div>
+                </form>  
+
+            {% else %}
+                <form action="" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    
+                    <textarea name="document" class="original--textarea">{{ document }}</textarea>
+                    
+                    <div class="original--btns">
+
+                        <label for="doc" class="original--label">   
+                            Upload .docx
+                            <input type="file" name="doc" id="doc" onchange="submit()"/>
+                        </label>
+
+                        <input type="submit" value="Scan" class="original--submit">
+                        
+                    </div>
+                </form>  
+            {% endif %}
+        </div>
+
+        <h1 class="content--icon"><i class="fa fa-arrow-right"></i></h1>
+        
+
+        <div class="results--container">
+
+            <h1  class="results--title">Results</h1>
+
+            {% if results %}
+                <p class="results--body">{{ results }}</p>
+            {% else %}
+                <p class="results--body">Please upload a file or Paste document.</p>
+            {% endif %}
+            
+
+        </div>
+    </div>
+    
+    
+
+</body>
+<script type='text/javascript' src="{% static 'js/checker.js' %}"></script>
+</html>
