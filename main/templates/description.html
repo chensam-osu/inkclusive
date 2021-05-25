@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Description</title>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/layout.css' %}">
+
+</head>
+<body>
+    <div class="description--container">
+        {% if word %}
+
+            {% with word|first as w %}
+                <h1>{{ w.word|upper }}</h1>
+
+                <h2>{{ w.description }}</h2>
+            
+            {% endwith %}
+
+        {% else %}
+
+            <h1>This word doesn't have a description associated with it please contact site administrator</h1>
+
+        {% endif %}
+
+        <button class="original--label-uploaded btn--format" type="button" onclick="history.back()">Back</button>
+           
+    </div>
+    
+
+    
+</body>
+</html>
