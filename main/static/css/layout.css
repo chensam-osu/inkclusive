@@ -1,5 +1,6 @@
 *{
   box-sizing: border-box;
+  color: black;
 }
 
 body{
@@ -29,22 +30,31 @@ body{
   margin: 0 auto;
 }
 
+.header--description{
+  margin-left: 10px;
+}
+
+
+
 /* --------------------------- */
 /* CONTENT                     */
 /* --------------------------- */
 .content--container{
   display: flex;
-  height: 100%;
+  height: 90%;
+  margin: 1rem;
 }
 
 .original--container, .results--container{
   flex-basis: 50%;
   text-align: center;
+  padding: .5rem;
 }
 
 .results--body, .original--textarea{
   width: 100%;
   height: 50vh;
+  padding: .5rem;
 }
 
 .original--textarea{
@@ -58,4 +68,29 @@ body{
 
 .content--icon{
   align-self: center;
+}
+
+.btn--format{
+  padding: 5px .8rem;
+  cursor: pointer;
+}
+
+.original--label-uploaded, .original--label{
+  margin-right: 10px;
+}
+
+.original--btns{
+  margin-top: 15px;
+}
+
+/* --------------------------- */
+/* DESCRIPTION                 */
+/* --------------------------- */
+.description--container{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
