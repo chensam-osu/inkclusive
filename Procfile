@@ -1,1 +1,1 @@
-web: gunicorn TrakIt.wsgi --log-file -
+web: gunicorn profanity_checker.wsgi --log-file -
