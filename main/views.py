@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView,View
 from docx2python import docx2python
 
 from profanity_filter import ProfanityFilter
@@ -25,8 +25,20 @@ class IndexView(TemplateView):
 
         # FILE UPLOADED
         if 'doc' in request.FILES:
-            doc = docx2python(request.FILES['doc'], extract_image=False)
-            context['doc'] = doc.text
+            
+            doc = request.FILES['doc']
+        
+
+            if doc.name.endswith(".docx"):
+                docx = docx2python(doc, extract_image=False)
+                context['doc'] = docx.text
+
+            elif doc.name.endswith(".txt"):
+                print("THis is a test")
+                
+                mytext = str(doc.read())
+
+                context['doc'] = mytext
 
             return render(request, 'index.html', context=context)
 
@@ -87,3 +99,17 @@ class IndexView(TemplateView):
         context['document'] = document
 
         return render(request, 'index.html', context=context)
+
+
+class DescriptionView(View):
+
+    def get(self, request):
+
+        context = {}
+        word = request.GET.get('word')
+
+        word = Words.objects.all().filter(word__iexact=word)
+
+        context['word']= word
+        
+        return render(request, 'description.html', context)
