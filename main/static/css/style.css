@@ -1,18 +1,58 @@
-.results--body{
+/* --------------------------- */
+/* GENERAL                     */
+/* --------------------------- */
+
+a{ text-decoration: none; }
+
+body{ background-color: rgb(241, 241, 241); }
+
+
+/* --------------------------- */
+/* HEADER                      */
+/* --------------------------- */
+.header--company{
+  font-size: 4.5rem;
+  border-bottom: 5px solid rgb(19, 88, 216);
+}
+
+.header--description{ font-size: 2rem; }
+
+.header--overview{
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+/* --------------------------- */
+/* CONTENT                     */
+/* --------------------------- */
+.content--container{
+  border: 6px solid rgb(19, 88, 216);
+}
+.results--body, .original--textarea{
   border: 2px solid #000000;
+  background-color: #ffffff;
 }
 
 .profanity{
   background-color: rgba(255, 0, 0, 0.493);
 }
 
-/* --------------------------- */
-/* HEADER                      */
-/* --------------------------- */
-.header--company{
-  font-size: 4rem;
+.original--label, .original--submit{
+  border: 2px solid rgb(19, 88, 216);
+  color: rgb(19, 88, 216);
+  background-color: rgb(241, 241, 241);
+  font-weight: 600;
+}
+
+.original--label-uploaded{
+  color: rgb(241, 241, 241);
+  border: 2px solid rgb(241, 241, 241);
+  background-color: rgb(19, 88, 216);
 }
 
 /* --------------------------- */
-/* CONTENT                     */
+/* DESCRIPTION                 */
 /* --------------------------- */
+.description--container h1{
+  border-bottom: 5px solid rgb(19, 88, 216);
+}
