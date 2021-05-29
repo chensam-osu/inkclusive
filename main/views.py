@@ -97,19 +97,17 @@ class IndexView(TemplateView):
                 # LOOP THROUGH EACH WORD.
                 for word in words:
 
-                    clean_word = clear_punctuation(word)
+                    clean_word = clear_punctuation(word).lower()
 
                     in_db = Words.objects.all().filter(word__icontains=clean_word)
 
                     # WORD IS IN DATABASE
                     if in_db:
-
                         temp_list.append(clean_word)
 
                         temp_word = " ".join(temp_list)
 
-
-                        starting_phrase = Words.objects.all().filter(word__startswith=temp_word)
+                        starting_phrase = Words.objects.all().filter(word__istartswith=temp_word)
 
                         # CURRENT WORD IS THE START OF THE PHRASE
                         if starting_phrase:
@@ -128,10 +126,15 @@ class IndexView(TemplateView):
 
                                 temp_list.clear()
 
-                            # TEMP WORD DID NOT COMPLETE THE PHRASE
+                            # # TEMP WORD DID NOT COMPLETE THE PHRASE
                             # else:
+                            #     print('now we here bish')
+                            #     original = " ".join(original_list)
+                            #     original_list.clear()
+
+                            #     wordlist.append(original)
+
                             #     temp_list.clear()
-                            #     temp_list.append(temp_word)
                                 
                         
                         # NOT START OF PHRASE KEEP GOING
@@ -149,8 +152,7 @@ class IndexView(TemplateView):
                         new_word = format_word(word)
                         wordlist.append(new_word)
                         temp_list.clear()
-                        continue
-
+                        
                     # JUST A REGULAR WORD
                     else:
                         temp_word = " ".join(temp_list)
