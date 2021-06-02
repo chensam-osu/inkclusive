@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-{% load static %} 
+{% load static %}
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Description</title>
+    <title>About Us</title>
 
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -27,27 +28,11 @@
         </div>
     </nav>
 
-    <div class="description--container">
-        {% if word %}
-
-            {% with word|first as w %}
-                <h1>{{ w.word|upper }}</h1>
-
-                <h2>{{ w.description }}</h2>
-            
-            {% endwith %}
-
-        {% else %}
-
-            <h1>This word doesn't have a description associated with it please contact site administrator</h1>
-
-        {% endif %}
-
-        <button class="original--label-uploaded btn--format" type="button" onclick="history.back()">Back</button>
-           
+    <div class="header--container">
+        <h2 class="header--description">About Us</h2>
+        <p class="header--overview">As we progress as a society and learn more about what is and is not acceptable, it is imperative that our language be able to adapt to certain expectations set by communities that are traditionally underrepresented and/or oppressed.</p>
+        <p class="header--overview">The focus of this application is to provide a simple tool for screening documents for racist langauge. The particular focus is not in slurs or expletives but rather words and phrases that have deeply rooted racists pasts, often unknown to modern day users.</p>
     </div>
-    
-
-    
+  
 </body>
 </html>

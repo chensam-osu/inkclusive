@@ -64,16 +64,14 @@ class IndexView(TemplateView):
             
             doc = request.FILES['doc']
         
-
             if doc.name.endswith(".docx"):
                 docx = docx2python(doc, extract_image=False)
                 context['doc'] = docx.text
 
             elif doc.name.endswith(".txt"):
-                print("THis is a test")
+                print("This is a test")
                 
                 mytext = str(doc.read())
-
                 context['doc'] = mytext
 
             return render(request, 'index.html', context=context)
@@ -175,9 +173,15 @@ class DescriptionView(View):
 
         context = {}
         word = request.GET.get('word')
-
         word = Words.objects.all().filter(word__iexact=word)
-
         context['word']= word
-        
+    
         return render(request, 'description.html', context)
+
+class AboutView(View):
+
+    template_name = 'about.html'
+
+    def get(self, request):
+
+        return render(request, "about.html")

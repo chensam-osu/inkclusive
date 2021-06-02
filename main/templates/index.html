@@ -9,82 +9,69 @@
     <title>INKclusive</title>
 
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link rel="stylesheet" href="{% static 'css/layout.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
 </head>
 <body>
 
-    <div class="header--container">
-        
-        <h1 class="header--company">INKclusive</h1>
-
-        <h2 class="header--description">Discriminatory Language Scanner</h2>
-
-        <p class="header--overview">As we progress as a society and learn more about what is and is not acceptable, it is imperative that our language be able to adapt to certain expectations set by communities that are traditionally underrepresented or oppressed.</p>
-
-    </div>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/"><img src="../static/assets/INKclusive.svg" width="140" height="50"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-link" href="/about">About</a>
+            </div>
+            </div>
+        </div>
+    </nav>
 
     <div class="content--container">
-
         <div class="original--container">
-
-            <h1 class="original--title">Original</h1>
             
             {% if doc %}
                 <form action="" method="post" enctype="multipart/form-data">
                     {% csrf_token %}
-                    
-                    <textarea name="document" class="original--textarea">{{ doc }}</textarea>
-                    
+                    <textarea name="document" placeholder="Type here or upload a document to check for racist language." spellcheck="false" class="original--textarea">{{ doc }}</textarea>
                     <div class="original--btns">
-
-                        <label for="doc" id="doc--label" class="original--label-uploaded">   
-                            Uploaded!
+                        <label for="doc" id="doc--label" class="btn btn-outline-primary">   
+                            Upload .docx
                             <input type="file" name="doc" id="doc" onchange="submit()"/>
                         </label>
-
-                        <input type="submit" value="Scan" class="original--submit">
-                        
+                        <input type="submit" value="Scan" class="btn btn-dark">
                     </div>
                 </form>  
 
             {% else %}
                 <form action="" method="post" enctype="multipart/form-data">
                     {% csrf_token %}
-                    
-                    <textarea name="document" class="original--textarea">{{ document }}</textarea>
-                    
+                    <textarea name="document" placeholder="Type here or upload a document to check for racist language." spellcheck="false" class="original--textarea">{{ document }}</textarea>
                     <div class="original--btns">
-
-                        <label for="doc" class="original--label">   
+                        <label for="doc" class="btn btn-outline-primary">   
                             Upload .docx
                             <input type="file" name="doc" id="doc" onchange="submit()"/>
                         </label>
-
-                        <input type="submit" value="Scan" class="original--submit">
-                        
+                        <input type="submit" value="Scan" class="btn btn-dark">
                     </div>
                 </form>  
             {% endif %}
         </div>
-
-        <h1 class="content--icon"><i class="fa fa-arrow-right"></i></h1>
-        
-
+       
         <div class="results--container">
-
-            <h1  class="results--title">Results</h1>
-
             {% if results %}
                 <p class="results--body">{{ results }}</p>
             {% else %}
-                <p class="results--body">Please upload a file or Paste document.</p>
+                <p class="results--body"></p>
             {% endif %}
-            
-
         </div>
     </div>
-    
-    
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 </body>
 <script type='text/javascript' src="{% static 'js/checker.js' %}"></script>
